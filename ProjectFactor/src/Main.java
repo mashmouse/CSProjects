@@ -19,6 +19,7 @@ public class Main {
         		  try {
         			  input = Integer.parseInt(in);
         			  if(input <= 100 && input >= 1){
+        				  System.out.print("Factors: ");
             	          ArrayList<Integer> listOfFactors = factors(input);
             	          for(int j = 0; j < listOfFactors.size(); j++){
             	        	  System.out.print(listOfFactors.get(j) + " ");
@@ -27,8 +28,8 @@ public class Main {
         			  } else {
         				  System.out.println("The number you input is not inbetween 1 and 100.");
         			  }
-        		  } catch(Exception e) {
-        			  System.out.println("error");
+        		  } catch(NumberFormatException e) {
+        			  System.out.println("Only input numbers please.");
         		  }
         	  }
           }
