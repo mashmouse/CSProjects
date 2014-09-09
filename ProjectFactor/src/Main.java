@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//Hello
 public class Main {
 
      public static void main(String[] args) {
@@ -45,6 +44,21 @@ public class Main {
     		 }
     	 }
     	 return factors;
+     }
+     
+     public static int getGCD(int num1, int num2){
+    	 int larger = num1;
+    	 int smaller = num2;
+    	 if(num1 < num2){
+    		 larger = num2;
+    		 smaller = num1;
+    	 }
+    	 for(int i = larger; i > 0; i--){
+    		 if(larger/smaller == i){
+    			 return i;
+    		 }
+    	 }
+    	 return 0; 
      }
 
 }
