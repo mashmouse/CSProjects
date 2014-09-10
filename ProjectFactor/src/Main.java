@@ -9,23 +9,31 @@ public class Main {
          boolean quit = false;
           while(quit == false){
         	  System.out.print("Input: ");
-        	  String in = c.next();
+        	  String in = c.nextLine();
         	  if(in.equals("QUIT")){
         		  quit = true;
         		  System.out.println("Thank you.");
         	  } else {
-        		  int input;
         		  try {
-        			  input = Integer.parseInt(in);
-        			  if(input <= 100 && input >= 1){
-        				  System.out.print("Factors: ");
-            	          ArrayList<Integer> listOfFactors = factors(input);
-            	          for(int j = 0; j < listOfFactors.size(); j++){
-            	        	  System.out.print(listOfFactors.get(j) + " ");
-            	          }
-        	        	  System.out.println();
-        			  } else {
-        				  System.out.println("The number you input is not inbetween 1 and 100.");
+        			  Scanner readLine = new Scanner(in);
+        			  int first = Integer.parseInt(readLine.next());
+        			  ArrayList<Integer> inputList = new ArrayList<Integer>();
+        			  inputList.add(first);
+        			  while(readLine.hasNext()){
+        				  inputList.add(Integer.parseInt(readLine.next()));
+        			  }
+        			  if(inputList.size() == 1){
+        				  int input = 0;// = inputList.get(0))
+        				  if(input <= 100 && input >= 1){
+            				  System.out.print("Factors: ");
+                	          ArrayList<Integer> listOfFactors = factors(input);
+                	          for(int j = 0; j < listOfFactors.size(); j++){
+                	        	  System.out.print(listOfFactors.get(j) + " ");
+                	          }
+            	        	  System.out.println();
+            			  } else {
+            				  System.out.println("The number you input is not inbetween 1 and 100.");
+            			  }  
         			  }
         		  } catch(NumberFormatException e) {
         			  System.out.println("Only input numbers please.");
@@ -72,7 +80,7 @@ public class Main {
     			 }
     		 }
     	 }
-    	 return 0; 
+    	 return 1;
      }
 
 }
