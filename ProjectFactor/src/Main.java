@@ -5,8 +5,8 @@ public class Main {
 
      public static void main(String[] args) {
     	 System.out.println("Input a number inbetween 1 and 100 to get their factors, if you are finished you may type 'QUIT' to exit the program.");
-          Scanner c = new Scanner(System.in);
-          boolean quit = false;
+    	 Scanner c = new Scanner(System.in);
+         boolean quit = false;
           while(quit == false){
         	  System.out.print("Input: ");
         	  String in = c.next();
@@ -46,16 +46,30 @@ public class Main {
     	 return factors;
      }
      
-     public static int getGCD(int num1, int num2){
-    	 int larger = num1;
-    	 int smaller = num2;
-    	 if(num1 < num2){
-    		 larger = num2;
-    		 smaller = num1;
+     public static int getGCD(ArrayList<Integer> nums){
+    	 int smallest = nums.get(0);
+    	 for(int i = 1; i < nums.size(); i++){
+        	 if(nums.get(i) < smallest){
+        		 smallest = nums.get(i);
+        	 }
     	 }
-    	 for(int i = larger; i > 0; i--){
-    		 if(larger/smaller == i){
-    			 return i;
+    	 boolean[] numsTest = new boolean[nums.size()];
+    	 int count = smallest;
+    	 while(smallest != 0){
+    		 for(int j = 0; j < numsTest.length; j++){
+    			 if(nums.get(j)%count == 0){
+    				 numsTest[j] = true;
+    			 } else {
+    				 numsTest[j] = false;
+    			 }
+    		 }
+    		 for(int k = 0; k < numsTest.length; k++){
+    			 if( k == numsTest.length - 1 && numsTest[k] == true){
+    				 return count; 
+    			 } else if (numsTest[k] == false){
+    				 count --;
+    				 break;
+    			 }
     		 }
     	 }
     	 return 0; 
