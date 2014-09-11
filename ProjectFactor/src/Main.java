@@ -23,7 +23,7 @@ public class Main {
         				  inputList.add(Integer.parseInt(readLine.next()));
         			  }
         			  if(inputList.size() == 1){
-        				  int input = 0;// = inputList.get(0))
+        				  int input = inputList.get(0);
         				  if(input <= 100 && input >= 1){
             				  System.out.print("Factors: ");
                 	          ArrayList<Integer> listOfFactors = factors(input);
@@ -34,6 +34,9 @@ public class Main {
             			  } else {
             				  System.out.println("The number you input is not inbetween 1 and 100.");
             			  }  
+        			  } else {
+        				  System.out.print("GCD: ");
+        				  System.out.println(getGCD(inputList));
         			  }
         		  } catch(NumberFormatException e) {
         			  System.out.println("Only input numbers please.");
