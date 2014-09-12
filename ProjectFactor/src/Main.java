@@ -30,7 +30,7 @@ public class Main {
         				  }
         			  }
         		  } catch(NumberFormatException e) {
-        			  System.out.println("Only input numbers please.");
+        			  System.out.println("Only input integers please.");
         		  }
         	  }
           }
